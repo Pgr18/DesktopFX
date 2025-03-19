@@ -1,9 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Briko" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" value="briko" />
+    <option name="ALTERNATIVE_JRE_PATH" value="23" />
     <option name="ENABLE_JMX_AGENT" value="false" />
     <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
-    <module name="DesktopFX.Desktop.main" />
+    <module name="JavaFX" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.ak.spring.SpringFxApplication" />
     <method v="2">
       <option name="Make" enabled="true" />
