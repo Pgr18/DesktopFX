@@ -7,7 +7,11 @@ configurations {
     mockitoAgent
 }
 
+
 dependencies {
+    //implementation fileTree('D:\\Comsol\\COMSOL62\\Multiphysics\\java')
+    //implementation fileTree('D:\\Comsol\\COMSOL62\\Multiphysics\\plugins')
+   // implementation files('com.comsol.api','com.comsol.model')
     api libs.measure.unit.api
     api libs.javax.json
     api libs.commons.math3

@@ -1,4 +1,5 @@
 module com.ak.util {
+
   requires java.json;
   requires commons.math3;
   requires org.apache.commons.csv;
@@ -10,7 +11,8 @@ module com.ak.util {
   requires static org.mockito.junit.jupiter;
   requires static org.mockito;
 
-  exports com.ak.csv;
+
+    exports com.ak.csv;
   exports com.ak.math;
   exports com.ak.util;
   exports com.ak.logging;
