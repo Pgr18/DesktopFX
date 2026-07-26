@@ -1,0 +1,106 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Rcms",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 5005,
+      "preLaunchTask": "gradle: debug-rcms"
+    },
+    {
+      "type": "java",
+      "name": "Rcm",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 5005,
+      "preLaunchTask": "gradle: debug-rcm"
+    },
+    {
+      "type": "java",
+      "name": "Rcms (Java launch)",
+      "request": "launch",
+      "mainClass": "com.ak.fx.desktop/com.ak.spring.SpringFxApplication",
+      "projectName": "Desktop",
+      "cwd": "${workspaceFolder}/Desktop",
+      "vmArgs": "--enable-preview -Dspring.profiles.active=rcms --patch-module com.ak.fx.desktop=${workspaceFolder}/Desktop/build/resources/main",
+      "args": "--spring.profiles.active=rcms",
+      "env": {
+        "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+        "SPRING_PROFILES_ACTIVE": "rcms"
+      },
+      "shortenCommandLine": "argfile",
+      "javaExec": "C:\\Program Files\\Java\\jdk-21\\bin\\java.exe",
+      "preLaunchTask": "gradle: build"
+    },
+    {
+      "type": "java",
+      "name": "Rcm (Java launch)",
+      "request": "launch",
+      "mainClass": "com.ak.fx.desktop/com.ak.spring.SpringFxApplication",
+      "projectName": "Desktop",
+      "cwd": "${workspaceFolder}/Desktop",
+      "vmArgs": "--enable-preview -Dspring.profiles.active=rcm --patch-module com.ak.fx.desktop=${workspaceFolder}/Desktop/build/resources/main",
+      "args": "--spring.profiles.active=rcm",
+      "env": {
+        "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+        "SPRING_PROFILES_ACTIVE": "rcm"
+      },
+      "shortenCommandLine": "argfile",
+      "javaExec": "C:\\Program Files\\Java\\jdk-21\\bin\\java.exe",
+      "preLaunchTask": "gradle: build"
+    },
+    {
+      "type": "java",
+      "name": "Loopback",
+      "request": "launch",
+      "mainClass": "com.ak.fx.desktop/com.ak.spring.SpringFxApplication",
+      "projectName": "Desktop",
+      "cwd": "${workspaceFolder}/Desktop",
+      "vmArgs": "--enable-preview -Dspring.profiles.active=loopback --patch-module com.ak.fx.desktop=${workspaceFolder}/Desktop/build/resources/main",
+      "args": "--spring.profiles.active=loopback",
+      "env": {
+        "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+        "SPRING_PROFILES_ACTIVE": "loopback"
+      },
+      "shortenCommandLine": "argfile",
+      "javaExec": "C:\\Program Files\\Java\\jdk-21\\bin\\java.exe",
+      "preLaunchTask": "gradle: build"
+    },
+    {
+      "type": "java",
+      "name": "RcmCalibration",
+      "request": "launch",
+      "mainClass": "com.ak.fx.desktop/com.ak.spring.SpringFxApplication",
+      "projectName": "Desktop",
+      "cwd": "${workspaceFolder}/Desktop",
+      "vmArgs": "--enable-preview -Dspring.profiles.active=rcm-calibration --patch-module com.ak.fx.desktop=${workspaceFolder}/Desktop/build/resources/main",
+      "args": "--spring.profiles.active=rcm-calibration",
+      "env": {
+        "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+        "SPRING_PROFILES_ACTIVE": "rcm-calibration"
+      },
+      "shortenCommandLine": "argfile",
+      "javaExec": "C:\\Program Files\\Java\\jdk-21\\bin\\java.exe",
+      "preLaunchTask": "gradle: build"
+    },
+    {
+      "type": "java",
+      "name": "RcmsCalibration",
+      "request": "launch",
+      "mainClass": "com.ak.fx.desktop/com.ak.spring.SpringFxApplication",
+      "projectName": "Desktop",
+      "cwd": "${workspaceFolder}/Desktop",
+      "vmArgs": "--enable-preview -Dspring.profiles.active=rcms-calibration --patch-module com.ak.fx.desktop=${workspaceFolder}/Desktop/build/resources/main",
+      "args": "--spring.profiles.active=rcms-calibration",
+      "env": {
+        "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+        "SPRING_PROFILES_ACTIVE": "rcms-calibration"
+      },
+      "shortenCommandLine": "argfile",
+      "javaExec": "C:\\Program Files\\Java\\jdk-21\\bin\\java.exe",
+      "preLaunchTask": "gradle: build"
+    }
+  ]
+}

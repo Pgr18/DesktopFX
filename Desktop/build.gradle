@@ -16,6 +16,8 @@ dependencies {
     implementation libs.measure.unit.api
     implementation libs.tech.units
     implementation libs.commons.math3
+    // Needed on JPMS module-path: spring.context (automatic) loads LogFactory at startup
+    implementation 'commons-logging:commons-logging'
 
     implementation libs.javafx.base
     implementation libs.javafx.graphics
@@ -31,7 +33,7 @@ dependencies {
 }
 
 javafx {
-    version = '25-ea+8'
+    version = libs.versions.javafx.get()
     modules = ['javafx.controls', 'javafx.fxml']
     configurations = ['implementation']
 }
@@ -39,12 +41,35 @@ javafx {
 application {
     mainModule = 'com.ak.fx.desktop'
     mainClass = 'com.ak.spring.SpringFxApplication'
+    applicationDefaultJvmArgs = ['--enable-preview']
 }
+
+def activeProfile = findProperty('profile') ?: System.getenv('SPRING_PROFILES_ACTIVE')
 
 tasks {
     test {
         moduleOptions {
             runOnClasspath = true
+        }
+    }
+
+    run {
+        // Ensure transitive automatic modules (commons.logging for Spring) are resolved
+        moduleOptions {
+            addModules = ['org.apache.commons.logging', 'ALL-MODULE-PATH']
+        }
+        jvmArgs '--enable-preview'
+        if (activeProfile) {
+            systemProperty 'spring.profiles.active', activeProfile
+            environment 'SPRING_PROFILES_ACTIVE', activeProfile.toString()
+        }
+    }
+
+    bootRun {
+        jvmArgs '--enable-preview'
+        if (activeProfile) {
+            systemProperty 'spring.profiles.active', activeProfile
+            environment 'SPRING_PROFILES_ACTIVE', activeProfile.toString()
         }
     }
 }

@@ -49,7 +49,8 @@ public class SpringFxApplication extends FxApplication {
   @Override
   public void init() {
     System.setProperty(LocalFileHandler.class.getName(), "FxDesktop");
-    applicationContext = new SpringApplicationBuilder(SpringFxApplication.class).headless(false).run();
+    String[] args = getParameters().getRaw().toArray(String[]::new);
+    applicationContext = new SpringApplicationBuilder(SpringFxApplication.class).headless(false).run(args);
   }
 
   @Override

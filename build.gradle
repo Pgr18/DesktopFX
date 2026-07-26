@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.ben.manes.versions)
     alias(libs.plugins.nebula.lint)
     alias(libs.plugins.sonarqube)
-    alias(libs.plugins.jacocolog)
     alias(libs.plugins.jgitver)
 }
 
@@ -49,7 +48,6 @@ allprojects {
     }
 
     apply plugin: 'jacoco'
-    apply plugin: 'org.barfuin.gradle.jacocolog'
 
     jacoco {
         toolVersion = '0.8.12'
@@ -67,17 +65,19 @@ subprojects {
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(23)
+            languageVersion = JavaLanguageVersion.of(21)
         }
     }
 
     compileJava {
         options.encoding = 'UTF-8'
         options.compilerArgs << '-parameters'
+        options.compilerArgs << '--enable-preview'
     }
 
     compileTestJava {
         options.encoding = 'UTF-8'
+        options.compilerArgs << '--enable-preview'
     }
 
     test {
@@ -87,5 +87,6 @@ subprojects {
             events 'failed'
         }
         maxHeapSize = '1G'
+        jvmArgs '--enable-preview'
     }
 }

@@ -14,8 +14,12 @@ bin/
 # NetBeans
 nb-configuration.xml
 
-# Visual Studio Code
-.vscode
+# Visual Studio Code / Cursor — keep shared launch configs, ignore local overrides
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .factorypath
 
 # OSX

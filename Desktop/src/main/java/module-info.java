@@ -18,6 +18,7 @@ module com.ak.fx.desktop {
   requires spring.context;
   requires spring.core;
   requires spring.beans;
+  requires org.apache.commons.logging;
   requires java.desktop;
 
   opens com.ak.appliance.suntech.fx.desktop to javafx.fxml;

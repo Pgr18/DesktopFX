@@ -11,6 +11,10 @@
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
     </wildcardResourcePatterns>
-    <bytecodeTargetLevel target="23" />
+    <bytecodeTargetLevel target="23">
+      <module name="DesktopFX" target="21" />
+      <module name="DesktopFX.main" target="21" />
+      <module name="DesktopFX.test" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

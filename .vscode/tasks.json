@@ -1,0 +1,249 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "env": {
+      "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+      "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+    }
+  },
+  "tasks": [
+    {
+      "label": "gradle: build",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:classes"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        },
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "gradle: clean build",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": ["clean", "build", "-x", "test"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: loopback",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=loopback"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "none",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "run: rcm",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=rcm"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "none",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "run: rcms",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=rcms"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "none",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "run: rcm-calibration",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=rcm-calibration"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "none",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "run: rcms-calibration",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=rcms-calibration"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "none",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "run: profile (prompt)",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=${input:springProfile}"],
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "group": "none",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "gradle: debug-rcms",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=rcms", "--debug-jvm"],
+      "isBackground": true,
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "Listening for transport dt_socket|Waiting for debugger|DEBUG.*address"
+        }
+      },
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "gradle: debug-rcm",
+      "type": "shell",
+      "command": "${workspaceFolder}/gradlew",
+      "windows": {
+        "command": "${workspaceFolder}\\gradlew.bat"
+      },
+      "args": [":Desktop:run", "-Pprofile=rcm", "--debug-jvm"],
+      "isBackground": true,
+      "options": {
+        "env": {
+          "JAVA_HOME": "C:\\Program Files\\Java\\jdk-21",
+          "PATH": "C:\\Program Files\\Java\\jdk-21\\bin;${env:PATH}"
+        }
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "Listening for transport dt_socket|Waiting for debugger|DEBUG.*address"
+        }
+      },
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "springProfile",
+      "type": "pickString",
+      "description": "Spring profile (как ACTIVE_PROFILES в IntelliJ)",
+      "options": [
+        "loopback",
+        "rcm",
+        "rcms",
+        "rcm-calibration",
+        "rcms-calibration",
+        "aper1-R1",
+        "aper1-myo",
+        "aper1-calibration",
+        "aper2-ecg",
+        "briko",
+        "kleiber-myo",
+        "nmis",
+        "nmis-rsce",
+        "prv",
+        "sktb-pr,nmis-rsce",
+        "aper1-nibp,suntech",
+        "aper2-nibp,suntech",
+        "aper1-nibp,suntech-test",
+        "aper1-R2-6mm,purelogic2f0",
+        "aper1-R2-7mm,purelogic2f0",
+        "aper1-R2-7mm,purelogic5f0",
+        "aper1-R2-7mm,purelogic6f0",
+        "aper1-R2-8mm,purelogic2f0",
+        "aper1-R2-10mm,purelogic0f5"
+      ],
+      "default": "rcms"
+    }
+  ]
+}
